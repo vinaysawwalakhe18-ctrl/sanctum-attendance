@@ -1,0 +1,8 @@
+{
+  "appId": "com.sanctum.attendance",
+  "appName": "Sanctum Attendance",
+  "webDir": "www",
+  "android": {
+    "allowMixedContent": false
+  }
+}
