@@ -94,7 +94,31 @@ a.bcard:hover{border-color:var(--muted)}
 .chart .hit{fill:transparent;cursor:pointer}
 .chart .hit:focus-visible{outline:2px solid var(--red)}
 .alist{list-style:none;margin:0;padding:0}
-.alist li{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:10px 0;border-bottom:1px solid var(--line)}
+.alist li{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;padding:10px 0;border-bottom:1px solid var(--line)}
+.msgs{display:flex;flex-wrap:wrap;gap:6px}
+.btn.sm{min-height:36px;padding:0 12px;display:inline-flex;align-items:center;text-decoration:none;color:inherit;font-size:13px}
+.btn.sm.wa{border-color:var(--green);color:var(--green-text)}
+.row.edit{grid-template-columns:28px minmax(0,1fr)}
+.ed{grid-column:2;display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.ph{height:36px;width:150px;max-width:100%;border-radius:10px;border:1px solid var(--line);background:var(--surface);padding:0 10px}
+.studs{display:grid;gap:12px;grid-template-columns:minmax(0,1fr)}
+@media(min-width:700px){.studs{grid-template-columns:200px minmax(0,1fr);align-items:center}}
+.clist{list-style:none;margin:0;padding:0}
+.clist li{display:flex;align-items:center;gap:12px;padding:8px 0;border-bottom:1px solid var(--line)}
+.clist li:last-child{border-bottom:0}
+.cn{font-weight:600;min-width:64px}
+.cs{flex:1;min-width:0;color:var(--muted);font-size:13px}
+.clist b{font-variant-numeric:tabular-nums;font-size:16px}
+.rgrid{display:grid;gap:12px;grid-template-columns:minmax(0,1fr);margin-bottom:12px}
+@media(min-width:700px){.rgrid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.rgrid .fld{margin-bottom:0}
+.fld select{height:44px;border-radius:12px;border:1px solid var(--line);background:var(--surface);padding:0 12px;width:100%;min-width:0}
+.quick{display:flex;flex-wrap:wrap;gap:8px}
+.tblwrap{overflow-x:auto}
+table.sum{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums;font-size:13px}
+table.sum th,table.sum td{padding:8px 10px;text-align:right;border-bottom:1px solid var(--line);white-space:nowrap}
+table.sum th:first-child,table.sum td:first-child{text-align:left}
+table.sum th{color:var(--muted);font-weight:600}
 .alist li:last-child{border-bottom:0}
 .empty{color:var(--muted);padding:8px 0}
 
@@ -123,10 +147,11 @@ a.bcard:hover{border-color:var(--muted)}
 .sb.A.on{background:var(--red);border-color:var(--red);color:#fff}
 .sb.L.on{background:var(--orange);border-color:var(--orange);color:var(--on-orange)}
 .rm{height:36px;padding:0 12px;border-radius:10px;border:1px solid var(--line);background:var(--surface);font-weight:600;color:var(--red-text)}
-.addf{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px}
-.addf input,.fld input{height:44px;border-radius:12px;border:1px solid var(--line);background:var(--surface);padding:0 12px;min-width:0;width:100%}
-.addf .btn{grid-column:1/-1}
-@media(min-width:600px){.addf{grid-template-columns:minmax(0,1fr) 110px auto}.addf .btn{grid-column:auto}}
+.addf{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px}
+.addf input,.fld input,.fld textarea{height:44px;border-radius:12px;border:1px solid var(--line);background:var(--surface);padding:0 12px;min-width:0;width:100%}
+.addf #nname,.addf .btn{grid-column:1/-1}
+.fld textarea{height:auto;padding:10px 12px;font:inherit;resize:vertical}
+@media(min-width:700px){.addf{grid-template-columns:minmax(0,1fr) 100px 170px auto}.addf #nname,.addf .btn{grid-column:auto}}
 .fld{display:grid;gap:6px;margin-bottom:12px}
 .fld label{font-weight:600}
 .stack{display:grid;gap:12px}
@@ -171,6 +196,7 @@ a.bcard:hover{border-color:var(--muted)}
       <nav class="nav" id="nav">
         <a href="#home" data-r="home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg>Home</a>
         <a href="#batches" data-r="batches"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6"/><path d="M16 4.6a3.5 3.5 0 0 1 0 6.8M18 14.4c2 .7 3.5 2.6 3.5 5.6"/></svg>Batches</a>
+        <a href="#reports" data-r="reports"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/><path d="M8 17v-3M12 17v-5M16 17v-2"/></svg>Reports</a>
         <a href="#setup" data-r="setup"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>Setup</a>
       </nav>
       <main id="view"></main>
@@ -229,16 +255,189 @@ function stats(bid,date){
 function totals(date){const t={P:0,A:0,L:0,N:0,total:0};BATCHES.forEach(b=>{const c=stats(b.id,date);for(const k in t)t[k]+=c[k]});return t}
 
 /* ---------- ui state ---------- */
-let curDate=todayS(),editMode=false,armed='',chartSel=-1;
+let curDate=todayS(),editMode=false,armed='',chartSel=-1,pendingRestore=null;
 const view=$('#view');
 const tile=(k,v)=>`<div class="tile"><div class="tl"><i class="dot ${k}"></i>${LABEL[k]}</div><div class="num">${v}</div></div>`;
 const bname=b=>'Class '+b.cls;
+
+/* ---------- parent messages ---------- */
+const DEFAULT_TPL='Dear Parent, {name} ({class}) was absent from Sanctum Academy of Science on {date}. Please contact the academy if there is any concern. - Way of Success.';
+function normPhone(p){let d=String(p||'').replace(/\D/g,'');if(d.length===11&&d[0]==='0')d=d.slice(1);if(d.length===10)d='91'+d;return d}
+function msgFor(s,date){
+  const b=BATCHES.find(x=>x.id===s.batch);
+  return (db.msgTpl||DEFAULT_TPL).replace(/\{name\}/g,s.name).replace(/\{class\}/g,bname(b)+' '+b.board)
+    .replace(/\{date\}/g,parseD(date).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'}));
+}
+function msgBtns(s,date){
+  const d=normPhone(s.parent);
+  if(d.length<11)return '<span class="note">No parent number</span>';
+  const t=encodeURIComponent(msgFor(s,date));
+  return `<a class="btn sm" href="sms:+${d}?body=${t}">SMS</a><a class="btn sm wa" href="https://wa.me/${d}?text=${t}">WhatsApp</a>`;
+}
+function absCardHTML(st,day,date){
+  const abs=st.filter(s=>day[s.id]==='A');
+  if(!abs.length)return '';
+  return `<div class="card"><div class="sec-h"><h2>Message parents</h2><span class="note">${abs.length} absent</span></div>
+    <ul class="alist">${abs.map(s=>`<li><span>${esc(s.name)}</span><span class="msgs">${msgBtns(s,date)}</span></li>`).join('')}</ul>
+    <p class="note" style="margin-top:8px">Opens SMS or WhatsApp with the message ready. Tap send there. Add missing numbers in Edit list.</p></div>`;
+}
 
 function bar(c){
   const seg=['P','L','A','N'].filter(k=>c[k]>0).map(k=>`<i class="${k}" style="flex:${c[k]} 1 0"></i>`).join('');
   return `<div class="bar" role="img" aria-label="${c.P} present, ${c.L} late, ${c.A} absent, ${c.N} not marked">${seg||'<i class="N" style="flex:1"></i>'}</div>`;
 }
 function counts(c){return `<div class="counts"><span>Present <b>${c.P}</b></span><span>Absent <b>${c.A}</b></span><span>Late <b>${c.L}</b></span><span>Not marked <b>${c.N}</b></span></div>`}
+
+/* ---------- students overview ---------- */
+function studentsCardHTML(total){
+  const rows=[8,9,10,11,12].map(c=>{
+    const parts=BATCHES.filter(b=>b.cls===c).map(b=>({b,n:studentsOf(b.id).length}));
+    return {c,parts,n:parts.reduce((a,p)=>a+p.n,0)};
+  });
+  return `<section class="card studs"><div><div class="tl">Total students</div><div class="num">${total}</div></div>
+    <ul class="clist">${rows.map(r=>`<li><span class="cn">Class ${r.c}</span><span class="cs">${r.parts.map(p=>(p.b.board==='CBSE'?'CBSE':'State Board')+' '+p.n).join(' · ')}</span><b>${r.n}</b></li>`).join('')}</ul></section>`;
+}
+
+/* ---------- reports and export ---------- */
+let repState=null;
+function repInit(){if(!repState){const t=new Date();repState={batch:'all',from:iso(new Date(t.getFullYear(),t.getMonth(),1)),to:todayS()}}return repState}
+function datesBetween(a,b){const out=[];let d=parseD(a);const e=parseD(b);while(d<=e&&out.length<400){out.push(iso(d));d=addDays(d,1)}return out}
+function repBatches(){return repState.batch==='all'?BATCHES:BATCHES.filter(b=>b.id===repState.batch)}
+function repSummary(){
+  const dates=datesBetween(repState.from,repState.to);
+  return repBatches().map(b=>{const st=studentsOf(b.id);let P=0,A=0,L=0;
+    dates.forEach(d=>{const day=db.att[d]||{};st.forEach(s=>{const v=day[s.id];if(v==='P')P++;else if(v==='A')A++;else if(v==='L')L++})});
+    const m=P+A+L;return {b,n:st.length,P,A,L,pct:m?Math.round((P+L)/m*100):null}});
+}
+function csvQ(v){v=String(v==null?'':v);return /[",\n]/.test(v)?'"'+v.replace(/"/g,'""')+'"':v}
+function buildCSV(bs,dates){
+  const rows=[['Class','Board','Roll','Student','Parent mobile',...dates,'Present','Absent','Late','Not marked','Attendance %']];
+  bs.forEach(b=>studentsOf(b.id).forEach(s=>{
+    let P=0,A=0,L=0;
+    const cells=dates.map(d=>{const v=(db.att[d]||{})[s.id]||'';if(v==='P')P++;else if(v==='A')A++;else if(v==='L')L++;return v});
+    const m=P+A+L;
+    rows.push([bname(b),b.board,s.roll,s.name,s.parent||'',...cells,P,A,L,dates.length-m,m?Math.round((P+L)/m*100):'']);
+  }));
+  return '﻿'+rows.map(r=>r.map(csvQ).join(',')).join('\r\n');
+}
+function buildPDF(bs,dates,from,to){
+  const W=842,H=595,M=28,nd=dates.length,pages=[];
+  const esc=s=>String(s).replace(/[^\x20-\x7E]/g,'?').replace(/\\/g,'\\\\').replace(/\(/g,'\\(').replace(/\)/g,'\\)');
+  const txt=(x,y,s,size,bold,white)=>`BT ${white?'1 g':'0 g'} /${bold?'F2':'F1'} ${size} Tf ${x.toFixed(1)} ${y.toFixed(1)} Td (${esc(s)}) Tj ET\n`;
+  const ctr=(x,w,y,s,size,bold,white)=>txt(x+(w-String(s).length*size*0.52)/2,y,s,size,bold,white);
+  const fill=(x,y,w,h,rgb)=>`${rgb} rg ${x.toFixed(1)} ${y.toFixed(1)} ${w.toFixed(1)} ${h.toFixed(1)} re f\n`;
+  const box=(x,y,w,h)=>`0.82 G 0.4 w ${x.toFixed(1)} ${y.toFixed(1)} ${w.toFixed(1)} ${h.toFixed(1)} re S\n`;
+  const NAVY='0.09 0.14 0.23';
+  const rw=26,nw=140,tw=26,pw=34,dw=Math.min(20,(W-2*M-rw-nw-3*tw-pw)/nd);
+  const rh=17,hh=26,top=H-68,perPage=Math.floor((top-hh-(M+24))/rh);
+  const fmt=d=>parseD(d).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});
+  const fills={P:'0.88 0.96 0.90',A:'1 0.85 0.87',L:'1 0.92 0.80'};
+  bs.forEach(b=>{
+    const st=studentsOf(b.id);
+    for(let i=0;i<st.length;i+=perPage){
+      let c=fill(0,H-40,W,40,NAVY);
+      c+=txt(M,H-26,'SANCTUM ACADEMY OF SCIENCE',13,true,true);
+      c+=txt(W-M-120,H-26,'Attendance Register',10,false,true);
+      c+=txt(M,H-58,bname(b)+' '+b.board+'   |   '+fmt(from)+' to '+fmt(to),10,true);
+      const xr=M,xn=xr+rw,xd=xn+nw,xt=xd+nd*dw,tableW=rw+nw+nd*dw+3*tw+pw;
+      c+=fill(xr,top-hh,tableW,hh,NAVY);
+      c+=txt(xr+4,top-16,'No.',8,true,true)+txt(xn+4,top-16,'Student',8,true,true);
+      dates.forEach((d,k)=>{const x=xd+k*dw,dt=parseD(d);
+        if(k===0||dt.getDate()===1)c+=ctr(x,dw,top-8,dt.toLocaleDateString('en-GB',{month:'short'}),5.5,false,true);
+        c+=ctr(x,dw,top-20,String(dt.getDate()),7.5,true,true)});
+      ['P','A','L'].forEach((l,k)=>{c+=ctr(xt+k*tw,tw,top-16,l,8,true,true)});
+      c+=ctr(xt+3*tw,pw,top-16,'%',8,true,true);
+      st.slice(i,i+perPage).forEach((s,k)=>{
+        const y=top-hh-(k+1)*rh;let P=0,A=0,L=0;
+        c+=box(xr,y,rw,rh)+box(xn,y,nw,rh);
+        c+=ctr(xr,rw,y+5,String(s.roll),8.5)+txt(xn+4,y+5,s.name.length>30?s.name.slice(0,29)+'.':s.name,8.5);
+        dates.forEach((d,j)=>{const v=(db.att[d]||{})[s.id]||'',x=xd+j*dw;
+          if(v==='P')P++;else if(v==='A')A++;else if(v==='L')L++;
+          if(v)c+=fill(x,y,dw,rh,fills[v]);
+          c+=box(x,y,dw,rh);
+          if(v)c+=ctr(x,dw,y+5,v,8,true)});
+        [P,A,L].forEach((n,j)=>{c+=box(xt+j*tw,y,tw,rh)+ctr(xt+j*tw,tw,y+5,String(n),8.5)});
+        const m=P+A+L;
+        c+=box(xt+3*tw,y,pw,rh)+ctr(xt+3*tw,pw,y+5,m?Math.round((P+L)/m*100)+'%':'-',8.5);
+      });
+      c+=txt(M,M+8,'P = Present    A = Absent    L = Late    % = (Present + Late) of marked days    Generated '+fmt(todayS()),8);
+      pages.push(c);
+    }
+  });
+  const objs=['<< /Type /Catalog /Pages 2 0 R >>',
+    `<< /Type /Pages /Kids [${pages.map((_,i)=>`${5+2*i} 0 R`).join(' ')}] /Count ${pages.length} >>`,
+    '<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>',
+    '<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>'];
+  pages.forEach((c,i)=>{
+    objs.push(`<< /Type /Page /Parent 2 0 R /MediaBox [0 0 ${W} ${H}] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents ${6+2*i} 0 R >>`);
+    objs.push(`<< /Length ${c.length} >>\nstream\n${c}endstream`);
+  });
+  let out='%PDF-1.4\n';const off=[];
+  objs.forEach((o,i)=>{off.push(out.length);out+=`${i+1} 0 obj\n${o}\nendobj\n`});
+  const xr0=out.length;
+  out+=`xref\n0 ${objs.length+1}\n0000000000 65535 f \n`+off.map(o=>String(o).padStart(10,'0')+' 00000 n \n').join('')+`trailer\n<< /Size ${objs.length+1} /Root 1 0 R >>\nstartxref\n${xr0}\n%%EOF`;
+  return btoa(out);
+}
+function b64blob(b64,mime){const bin=atob(b64),u=new Uint8Array(bin.length);for(let i=0;i<bin.length;i++)u[i]=bin.charCodeAt(i);return new Blob([u],{type:mime})}
+async function deliver(name,mime,data,isB64){
+  const C=window.Capacitor;
+  if(C&&C.isNativePlatform&&C.isNativePlatform()){
+    const plug=n=>(C.Plugins&&C.Plugins[n])||C.registerPlugin(n);
+    try{
+      const r=await plug('Filesystem').writeFile(Object.assign({path:name,data,directory:'CACHE'},isB64?{}:{encoding:'utf8'}));
+      await plug('Share').share({title:name,files:[r.uri],dialogTitle:'Save or send '+name});
+      return 'shared';
+    }catch(e){if(/cancel/i.test(String(e&&e.message||e)))return 'cancelled';throw e}
+  }
+  const blob=isB64?b64blob(data,mime):new Blob([data],{type:mime});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;document.body.appendChild(a);a.click();a.remove();
+  return 'downloaded';
+}
+async function doExport(kind){
+  const R=repInit(),msg=$('#rmsg');
+  if(R.from>R.to){msg.textContent='The From date must come before the To date.';return}
+  const dates=datesBetween(R.from,R.to),bs=repBatches().filter(b=>studentsOf(b.id).length);
+  if(!bs.length){msg.textContent='There are no students in this batch yet.';return}
+  const base='Sanctum-Attendance_'+(R.batch==='all'?'All':R.batch)+'_'+R.from+'_to_'+R.to;
+  try{
+    msg.textContent='Preparing file...';
+    let r;
+    if(kind==='csv')r=await deliver(base+'.csv','text/csv',buildCSV(bs,dates),false);
+    else{
+      if(dates.length>31){msg.textContent='PDF supports up to 31 days. Pick a shorter range, or use Excel (CSV).';return}
+      r=await deliver(base+'.pdf','application/pdf',buildPDF(bs,dates,R.from,R.to),true);
+    }
+    msg.textContent=r==='cancelled'?'Cancelled.':r==='shared'?'Done. Choose where to save or send the file.':'File downloaded.';
+  }catch(err){msg.textContent='Could not create the file: '+(err&&err.message?err.message:err)}
+}
+async function doBackup(){
+  const msg=$('#bmsg');
+  try{const r=await deliver('Sanctum-Attendance-Backup_'+todayS()+'.json','application/json',JSON.stringify(db),false);
+    msg.textContent=r==='cancelled'?'Cancelled.':'Backup ready. Keep the file somewhere safe.'}
+  catch(err){msg.textContent='Could not create the backup: '+(err&&err.message?err.message:err)}
+}
+function readRestore(f){
+  if(!f)return;const r=new FileReader();
+  r.onload=()=>{try{const o=JSON.parse(r.result);if(!o||!Array.isArray(o.students)||typeof o.att!=='object')throw 0;pendingRestore=o;armed='';render()}
+    catch(e){pendingRestore=null;render();const m=$('#bmsg');if(m)m.textContent='This is not a valid backup file.'}};
+  r.readAsText(f);
+}
+function renderReports(){
+  const R=repInit(),dates=datesBetween(R.from,R.to),sum=repSummary();
+  view.innerHTML=`<section><h1>Reports</h1><p class="muted">Export attendance as Excel (CSV) or PDF.</p></section>
+  <div class="card"><div class="rgrid">
+    <div class="fld"><label for="rb">Batch</label><select id="rb"><option value="all"${R.batch==='all'?' selected':''}>All batches</option>${BATCHES.map(b=>`<option value="${b.id}"${R.batch===b.id?' selected':''}>${bname(b)} ${b.board}</option>`).join('')}</select></div>
+    <div class="fld"><label for="rf">From</label><input id="rf" type="date" value="${R.from}" max="${todayS()}"></div>
+    <div class="fld"><label for="rt">To</label><input id="rt" type="date" value="${R.to}" max="${todayS()}"></div></div>
+    <div class="quick"><button class="btn" data-act="qtoday">Today</button><button class="btn" data-act="q7">Last 7 days</button><button class="btn" data-act="qmonth">This month</button></div></div>
+  <div class="card"><div class="sec-h"><h2>Summary</h2><span class="note">${dates.length} day${dates.length===1?'':'s'}</span></div>
+    <div class="tblwrap"><table class="sum"><thead><tr><th>Batch</th><th>Students</th><th>Present</th><th>Absent</th><th>Late</th><th>Attendance</th></tr></thead>
+    <tbody>${sum.map(r=>`<tr><td>${bname(r.b)} ${r.b.board==='CBSE'?'CBSE':'State'}</td><td>${r.n}</td><td>${r.P}</td><td>${r.A}</td><td>${r.L}</td><td>${r.pct===null?'-':r.pct+'%'}</td></tr>`).join('')}</tbody></table></div></div>
+  <div class="card stack"><h2>Export</h2>
+    <div class="toolbar"><button class="btn primary" data-act="csv">Excel (CSV)</button><button class="btn primary" data-act="pdf">PDF</button></div>
+    <p class="note">The share menu opens so you can save the file to Drive or Files, or send it on WhatsApp. CSV opens in Excel and Google Sheets. PDF covers up to 31 days.</p>
+    <p class="note" id="rmsg" role="status"></p></div>`;
+}
 
 /* ---------- views ---------- */
 function weekData(){
@@ -277,12 +476,13 @@ function renderHome(){
    <section><h1>Today</h1><p class="muted">${fmtLong(T)}</p></section>
    <section class="tiles">${tile('P',t.P)}${tile('A',t.A)}${tile('L',t.L)}${tile('N',t.N)}</section>
    <p class="muted">${marked} of ${t.total} students marked${marked?` · Attendance ${rate}%`:''}</p>
+   ${studentsCardHTML(t.total)}
    <section><div class="sec-h"><h2>Batches</h2><a class="muted" href="#batches">See all</a></div><div class="bgrid">${cards}</div></section>
    <section class="two">
      <div class="card chart"><div class="sec-h"><h2>Last 7 days</h2><span class="note">Present + Late</span></div>
        <div class="readout" id="readout" aria-live="polite">${readoutHTML(wk[chartSel])}</div><div id="chartbox">${chartSVG(wk)}</div></div>
      <div class="card"><div class="sec-h"><h2>Absent today</h2><span class="note">${absent.length}</span></div>
-       ${absent.length?`<ul class="alist">${absent.map(s=>{const b=BATCHES.find(x=>x.id===s.batch);return `<li><span>${esc(s.name)}</span><span class="chip">${bname(b)} · ${b.board==='CBSE'?'CBSE':'State'}</span></li>`}).join('')}</ul>`:'<p class="empty">No absentees marked yet.</p>'}
+       ${absent.length?`<ul class="alist">${absent.map(s=>{const b=BATCHES.find(x=>x.id===s.batch);return `<li><div><div>${esc(s.name)}</div><span class="note">${bname(b)} · ${b.board==='CBSE'?'CBSE':'State'}</span></div><span class="msgs">${msgBtns(s,T)}</span></li>`}).join('')}</ul>`:'<p class="empty">No absentees marked yet.</p>'}
      </div>
    </section>`;
 }
@@ -297,8 +497,8 @@ function renderBatch(bid){
   const st=studentsOf(bid),day=db.att[curDate]||{},c=stats(bid,curDate),isToday=curDate===todayS();
   const rows=st.map(s=>{const v=day[s.id]||'N';
     const btn=k=>`<button class="sb ${k}${v===k?' on':''}" data-act="set" data-s="${k}" data-id="${s.id}" aria-pressed="${v===k}" aria-label="${LABEL[k]}: ${esc(s.name)}" title="${LABEL[k]}">${k}</button>`;
-    return `<li class="row"><span class="roll">${s.roll}</span><div class="nm"><b>${esc(s.name)}</b><span class="st ${v}">${LABEL[v]}</span></div>
-      ${editMode?`<button class="rm" data-act="rm" data-id="${s.id}">${armed==='rm'+s.id?'Tap again':'Remove'}</button>`:`<div class="seg">${btn('P')}${btn('A')}${btn('L')}</div>`}</li>`}).join('');
+    return `<li class="row${editMode?' edit':''}"><span class="roll">${s.roll}</span><div class="nm"><b>${esc(s.name)}</b><span class="st ${v}">${LABEL[v]}</span></div>
+      ${editMode?`<div class="ed"><input class="ph" data-id="${s.id}" type="tel" inputmode="tel" placeholder="Parent mobile" aria-label="Parent mobile for ${esc(s.name)}" value="${esc(s.parent||'')}"><button class="rm" data-act="rm" data-id="${s.id}">${armed==='rm'+s.id?'Tap again':'Remove'}</button></div>`:`<div class="seg">${btn('P')}${btn('A')}${btn('L')}</div>`}</li>`}).join('');
   view.innerHTML=`
    <a class="back" href="#batches">← All batches</a>
    <div class="bhead"><h1>${bname(b)}</h1><span class="chip">${b.board}</span></div>
@@ -307,8 +507,9 @@ function renderBatch(bid){
    <div class="toolbar"><button class="btn primary" data-act="allP">Mark all Present</button>
      <button class="btn" data-act="clear">${armed==='clear'?'Tap again to clear':'Clear day'}</button>
      <button class="btn" data-act="edit">${editMode?'Done':'Edit list'}</button></div>
+   ${editMode?'':absCardHTML(st,day,curDate)}
    <div class="card">${st.length?`<ul class="list">${rows}</ul>`:'<p class="empty">No students yet. Add the first one below.</p>'}</div>
-   <form class="card addf" id="addf" autocomplete="off"><input id="nname" placeholder="Student name" aria-label="Student name" required><input id="nroll" type="number" min="1" placeholder="Roll no" aria-label="Roll number" value="${(st.reduce((m,s)=>Math.max(m,s.roll),0))+1}"><button class="btn primary" type="submit">Add student</button></form>`;
+   <form class="card addf" id="addf" autocomplete="off"><input id="nname" placeholder="Student name" aria-label="Student name" required><input id="nroll" type="number" min="1" placeholder="Roll no" aria-label="Roll number" value="${(st.reduce((m,s)=>Math.max(m,s.roll),0))+1}"><input id="nphone" type="tel" inputmode="tel" placeholder="Parent mobile" aria-label="Parent mobile number"><button class="btn primary" type="submit">Add student</button></form>`;
 }
 function renderSetup(){
   view.innerHTML=`<section><h1>Setup</h1><p class="muted">Admin settings for this device.</p></section>
@@ -317,6 +518,11 @@ function renderSetup(){
      <p class="note">${db.sample?'The students and attendance shown are sample data. Clear them before real use.':'Attendance is saved on this device only.'}</p>
      <div class="toolbar"><button class="btn" data-act="wipe">${armed==='wipe'?'Tap again to confirm':'Clear all data'}</button><button class="btn" data-act="sample">${armed==='sample'?'Tap again to confirm':'Reload sample data'}</button></div>
      <p class="note">Clear all data removes every student and record, so you can add your own batch lists.</p></div>
+   <div class="card"><h2 style="margin-bottom:12px">Absent message</h2><form id="tplf" autocomplete="off"><div class="fld"><label for="tpl">Message sent to parents</label><textarea id="tpl" rows="5">${esc(db.msgTpl||DEFAULT_TPL)}</textarea></div><p class="note" style="margin-bottom:12px">Use {name}, {class} and {date}. They are filled in for each student.</p><button class="btn primary" type="submit">Save message</button> <span class="note" id="tplmsg" role="status"></span></form></div>
+   <div class="card stack"><h2>Backup</h2><p class="note">Saves all students, parent numbers and attendance in one file. Keep it in WhatsApp, Drive or Files.</p>
+     <div class="toolbar"><button class="btn primary" data-act="backup">Backup data</button><label class="btn" for="rfile" style="display:inline-flex;align-items:center">Restore from file</label><input id="rfile" type="file" accept=".json,application/json" hidden></div>
+     ${pendingRestore?`<p class="note">This backup has ${pendingRestore.students.length} students. Restoring replaces the data on this phone.</p><div class="toolbar"><button class="btn primary" data-act="restore">${armed==='restore'?'Tap again to confirm':'Restore this backup'}</button></div>`:''}
+     <p class="note" id="bmsg" role="status"></p></div>
    <div class="card stack"><h2>Install on phone</h2><p class="note">Open this app in Chrome, tap the menu (⋮), then choose “Add to Home screen” or “Install app”.</p></div>`;
 }
 
@@ -326,7 +532,7 @@ function render(){
   const key=h.startsWith('batch-')?'batches':h;
   document.querySelectorAll('#nav a').forEach(a=>a.getAttribute('data-r')===key?a.setAttribute('aria-current','page'):a.removeAttribute('aria-current'));
   const y=window.scrollY;
-  if(h==='batches')renderBatches();else if(h.startsWith('batch-'))renderBatch(h.slice(6));else if(h==='setup')renderSetup();else renderHome();
+  if(h==='batches')renderBatches();else if(h.startsWith('batch-'))renderBatch(h.slice(6));else if(h==='setup')renderSetup();else if(h==='reports')renderReports();else renderHome();
   window.scrollTo(0,y);
 }
 window.addEventListener('hashchange',()=>{editMode=false;armed='';if(!location.hash.startsWith('#batch-'))curDate=todayS();window.scrollTo(0,0);render()});
@@ -338,6 +544,12 @@ view.addEventListener('click',e=>{
   const ci=e.target.closest('[data-i]');if(ci&&ci.closest('.chart')){selChart(+ci.dataset.i);return}
   const el=e.target.closest('[data-act]');if(!el)return;const act=el.dataset.act,bid=bidNow();
   if(act==='open'){curDate=todayS();return}
+  if(act==='csv'||act==='pdf'){doExport(act);return}
+  if(act==='backup'){doBackup();return}
+  if(act==='restore'){arm('restore',()=>{const o=pendingRestore;if(!o)return;o.nextId=o.nextId||o.students.reduce((m,s)=>Math.max(m,s.id),0)+1;db=o;pendingRestore=null;save();chartSel=-1;render()});return}
+  if(act==='qtoday'){repState.from=repState.to=todayS();render();return}
+  if(act==='q7'){repState.to=todayS();repState.from=iso(addDays(new Date(),-6));render();return}
+  if(act==='qmonth'){const t=new Date();repState.from=iso(new Date(t.getFullYear(),t.getMonth(),1));repState.to=todayS();render();return}
   if(act==='set'){const id=el.dataset.id,s=el.dataset.s;const day=db.att[curDate]=db.att[curDate]||{};if(day[id]===s)delete day[id];else day[id]=s;save();render()}
   else if(act==='allP'){const day=db.att[curDate]=db.att[curDate]||{};studentsOf(bid).forEach(s=>day[s.id]='P');save();render()}
   else if(act==='clear'){arm('clear',()=>{const day=db.att[curDate]||{};studentsOf(bid).forEach(s=>delete day[s.id]);save();render()})}
@@ -348,14 +560,22 @@ view.addEventListener('click',e=>{
   else if(act==='wipe'){arm('wipe',()=>{db={students:[],att:{},sample:false,nextId:1};save();chartSel=-1;render()})}
   else if(act==='sample'){arm('sample',()=>{db=seed();save();chartSel=-1;render()})}
 });
-view.addEventListener('change',e=>{if(e.target.id==='dt'&&e.target.value){curDate=e.target.value>todayS()?todayS():e.target.value;render()}});
+view.addEventListener('change',e=>{
+  if(e.target.id==='rfile'){readRestore(e.target.files[0]);return}
+  if(e.target.id==='rb'||e.target.id==='rf'||e.target.id==='rt'){
+    const R=repInit();if(e.target.id==='rb')R.batch=e.target.value;else if(e.target.value){R[e.target.id==='rf'?'from':'to']=e.target.value>todayS()?todayS():e.target.value}
+    if(R.from>R.to){if(e.target.id==='rf')R.to=R.from;else R.from=R.to}
+    render();return}
+  if(e.target.classList.contains('ph')){const s=db.students.find(x=>x.id===+e.target.dataset.id);if(s){s.parent=e.target.value.trim();save()}return}
+  if(e.target.id==='dt'&&e.target.value){curDate=e.target.value>todayS()?todayS():e.target.value;render()}});
 view.addEventListener('pointerover',e=>{const ci=e.target.closest&&e.target.closest('.chart [data-i]');if(ci)selChart(+ci.dataset.i)});
 view.addEventListener('focusin',e=>{const ci=e.target.closest&&e.target.closest('.chart [data-i]');if(ci)selChart(+ci.dataset.i)});
 function selChart(i){chartSel=i;const wk=weekData();$('#readout').innerHTML=readoutHTML(wk[i]);document.querySelectorAll('.chart .col').forEach(g=>g.classList.toggle('sel',+g.dataset.col===i))}
 view.addEventListener('submit',e=>{
   e.preventDefault();
   if(e.target.id==='addf'){const n=$('#nname').value.trim();if(!n)return;const bid=bidNow();
-    db.students.push({id:db.nextId++,name:n,roll:Math.max(1,+$('#nroll').value||1),batch:bid});db.sample=db.sample;save();render();$('#nname').focus()}
+    db.students.push({id:db.nextId++,name:n,roll:Math.max(1,+$('#nroll').value||1),batch:bid,parent:$('#nphone').value.trim()});save();render();$('#nname').focus()}
+  if(e.target.id==='tplf'){const v=$('#tpl').value.trim();db.msgTpl=v&&v!==DEFAULT_TPL?v:'';save();$('#tplmsg').textContent='Message saved.'}
   if(e.target.id==='pinf'){const p=$('#npin').value;if(/^\d{4}$/.test(p)){setPin(p);$('#pinmsg').textContent='PIN saved.';$('#npin').value=''}else $('#pinmsg').textContent='Enter exactly 4 digits.'}
 });
 
